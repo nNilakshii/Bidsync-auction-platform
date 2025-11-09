@@ -1,0 +1,18 @@
+# Root ignores
+.DS_Store
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# Frontend
+frontend/dist/
+frontend/.vite/
+frontend/node_modules/
+
+# Backend
+backend/.gradle/
+backend/build/
+backend/out/
+backend/.idea/
+backend/.vscode/

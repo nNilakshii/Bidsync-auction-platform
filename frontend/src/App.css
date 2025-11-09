@@ -1,0 +1,209 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.page__header p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.page__layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 1.5rem;
+}
+
+.page__sidebar {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 25px -15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar__title {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: rgba(0, 75, 255, 0.08);
+  color: #0d1c2c;
+  text-align: left;
+}
+
+.item-card--active {
+  border-color: #004bff;
+  background-color: #004bff;
+  color: #fff;
+}
+
+.item-card__price {
+  font-weight: 600;
+}
+
+.item-card__meta {
+  font-size: 0.85rem;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.page__content {
+  min-height: 400px;
+}
+
+.item-detail {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 10px 25px -15px rgba(0, 0, 0, 0.3);
+}
+
+.item-detail__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-detail__price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #004bff;
+}
+
+.item-detail__description {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.item-detail__content {
+  display: grid;
+  grid-template-columns: 1fr minmax(250px, 320px);
+  gap: 1.5rem;
+}
+
+.bid-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bid-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.bid-list__amount {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.bid-list__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.bid-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bid-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.bid-form__error {
+  color: #c11010;
+  font-size: 0.9rem;
+}
+
+.item-detail__hint {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.85rem;
+}
+
+.status-banner {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 12px 20px -15px rgba(0, 0, 0, 0.5);
+}
+
+.status-banner button {
+  background: transparent;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.status-banner--error {
+  background: #ffe6e6;
+  color: #7f1212;
+}
+
+.status-banner--info {
+  background: #e6f0ff;
+  color: #0f2f66;
+}
+
+.page__footer {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 960px) {
+  .page__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .item-detail__content {
+    grid-template-columns: 1fr;
+  }
+}
