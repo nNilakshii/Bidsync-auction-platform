@@ -16,7 +16,7 @@ Copy `.env.example` to `.env.local` and adjust as needed:
 
 ```
 VITE_API_BASE_URL=https://bidsync-auction-platform.onrender.com
-VITE_WS_BASE_URL=wss://bidsync-auction-platform.onrender.com/ws
+VITE_WS_BASE_URL=https://bidsync-auction-platform.onrender.com/ws
 ```
 
 ## Project Structure

@@ -24,7 +24,7 @@ Real-time USC community auction prototype showcasing a React client, Spring Boot
 	./gradlew bootRun --args='--spring.profiles.active=local'
 	```
 
-The backend publishes REST endpoints under `https://bidsync-auction-platform.onrender.com/api` and a STOMP WebSocket endpoint at `wss://bidsync-auction-platform.onrender.com/ws`.
+The backend publishes REST endpoints under `https://bidsync-auction-platform.onrender.com/api` and a STOMP WebSocket (SockJS) endpoint at `https://bidsync-auction-platform.onrender.com/ws`.
 
 ### Frontend
 
