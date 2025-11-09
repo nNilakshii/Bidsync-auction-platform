@@ -110,8 +110,8 @@ export function AuctionPage() {
   return (
     <div className="page">
       <header className="page__header">
-        <h1>Bidsync Auction</h1>
-        <p>Real-time auctions with instant bid updates.</p>
+        <h1>Bidsync: USC's Preloved</h1>
+        <p>Bid on pre-loved Trojan gear, memorabilia, and campus essentials in real time!!</p>
       </header>
 
       <main className="page__layout">

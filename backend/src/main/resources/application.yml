@@ -23,3 +23,7 @@ logging:
   level:
     org.springframework: INFO
     com.bidsync.backend: DEBUG
+
+bidsync:
+  assets:
+    base-url: ${BIDSYNC_ASSET_BASE_URL:/images/}

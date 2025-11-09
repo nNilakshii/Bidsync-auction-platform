@@ -7,6 +7,7 @@ public record AuctionItemDetailView(
         Long id,
         String title,
         String description,
+        String imageUrl,
         BigDecimal startingPrice,
         BigDecimal currentPrice,
         List<BidView> bids

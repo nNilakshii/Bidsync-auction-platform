@@ -21,6 +21,16 @@ export function AuctionItemList({ items, selectedItemId, onSelect }: AuctionItem
             className={`item-card ${selectedItemId === item.id ? 'item-card--active' : ''}`}
             onClick={() => onSelect(item.id)}
           >
+            {item.imageUrl ? (
+              <div className="item-card__thumbnail-wrapper">
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="item-card__thumbnail"
+                  loading="lazy"
+                />
+              </div>
+            ) : null}
             <span className="item-card__title">{item.title}</span>
             <span className="item-card__price">${item.currentPrice.toFixed(2)}</span>
             <span className="item-card__meta">Last bid {formatDistanceToNow(item.lastBidTime)}</span>

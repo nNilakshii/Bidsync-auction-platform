@@ -1,6 +1,6 @@
 # Bidsync Auction Platform
 
-Real-time auction prototype showcasing a React client, Spring Boot WebSocket backend, and PostgreSQL persistence. The project is structured as a multi-app workspace with separate `backend/` and `frontend/` packages.
+Real-time USC community auction prototype showcasing a React client, Spring Boot WebSocket backend, and PostgreSQL persistence. The project is structured as a multi-app workspace with separate `backend/` and `frontend/` packages.
 
 ## Prerequisites
 
@@ -39,6 +39,52 @@ The backend publishes REST endpoints under `http://localhost:8080/api` and a STO
 	```
 
 The UI expects the backend at `http://localhost:8080`. Configure different origins via `VITE_API_BASE_URL` and `VITE_WS_BASE_URL` in an `.env.local` file if needed.
+
+### Quick Start Checklist
+
+Use this end-to-end script the next time you need both services running locally. Commands assume macOS with Homebrew, `nvm`, and the repo root as the working directory.
+
+```bash
+# 1. Ensure Node 20.19+ is active (installs via nvm if missing)
+if ! command -v nvm >/dev/null; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  source ~/.nvm/nvm.sh
+fi
+nvm install 20.19.0
+nvm use 20.19.0
+
+# 2. Start/ensure PostgreSQL 16 is running (install if needed)
+brew list postgresql@16 >/dev/null 2>&1 || brew install postgresql@16
+brew services start postgresql@16
+
+# 3. Make sure the database and role exist
+createuser -s postgres 2>/dev/null || true
+psql -d postgres -c "ALTER USER postgres WITH PASSWORD 'postgres';"
+createdb bidsync 2>/dev/null || true
+
+# 4. Export backend environment variables for this shell
+export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/bidsync
+export SPRING_DATASOURCE_USERNAME=postgres
+export SPRING_DATASOURCE_PASSWORD=postgres
+export SPRING_PROFILES_ACTIVE=local
+
+# 5. Start the backend (leave running)
+cd backend
+./gradlew bootRun --args='--spring.profiles.active=local'
+```
+
+Open a new terminal for the frontend:
+
+```bash
+# From the repo root
+nvm use 20.19.0
+cd frontend
+rm -rf node_modules package-lock.json   # optional clean install
+npm install
+npm run dev -- --host
+```
+
+Once both servers print their “ready” messages, visit `http://localhost:5173` for the UI and use `curl http://localhost:8080/api/items` to verify the API.
 
 ## Key Directories
 

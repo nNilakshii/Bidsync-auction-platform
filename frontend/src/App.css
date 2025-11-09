@@ -59,6 +59,21 @@
   text-align: left;
 }
 
+.item-card__thumbnail-wrapper {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.item-card__thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .item-card--active {
   border-color: #004bff;
   background-color: #004bff;
@@ -95,10 +110,29 @@
   gap: 0.5rem;
 }
 
+.item-detail__media {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.item-detail__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .item-detail__price {
   font-size: 1.25rem;
   font-weight: 600;
   color: #004bff;
+}
+
+.item-detail__meta {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .item-detail__description {

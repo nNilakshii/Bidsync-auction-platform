@@ -81,6 +81,7 @@ public class AuctionService {
                 item.getId(),
                 item.getTitle(),
                 item.getDescription(),
+                item.getImageUrl(),
                 item.getStartingPrice(),
                 currentPrice,
                 bids
@@ -100,6 +101,7 @@ public class AuctionService {
         return new AuctionItemSummaryView(
                 item.getId(),
                 item.getTitle(),
+                item.getImageUrl(),
                 currentPrice,
                 lastBidTime
         );
@@ -108,7 +110,7 @@ public class AuctionService {
     private BidView toBidView(Bid bid) {
         return new BidView(
                 bid.getId(),
-                                bid.getItem().getId(),
+                bid.getItem().getId(),
                 bid.getAmount(),
                 bid.getBidderDisplayName(),
                 bid.getCreatedAt()

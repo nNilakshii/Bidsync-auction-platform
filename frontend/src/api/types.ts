@@ -1,6 +1,7 @@
 export interface AuctionItemSummary {
   id: number;
   title: string;
+  imageUrl: string | null;
   currentPrice: number;
   lastBidTime: string;
 }
@@ -17,6 +18,7 @@ export interface AuctionItemDetail {
   id: number;
   title: string;
   description: string;
+  imageUrl: string | null;
   startingPrice: number;
   currentPrice: number;
   bids: BidView[];

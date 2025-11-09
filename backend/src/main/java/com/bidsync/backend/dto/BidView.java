@@ -9,5 +9,5 @@ public record BidView(
         BigDecimal amount,
         String bidderDisplayName,
         OffsetDateTime createdAt
-} {
+) {
 }

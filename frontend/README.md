@@ -1,6 +1,6 @@
 # Bidsync Frontend
 
-React + TypeScript single-page app that renders live auction data and streams bids over WebSockets (STOMP + SockJS).
+React + TypeScript single-page app for the USC Community Exchange that renders live auction data and streams bids over WebSockets (STOMP + SockJS).
 
 ## Available Scripts
 

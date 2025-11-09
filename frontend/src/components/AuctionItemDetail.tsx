@@ -11,9 +11,15 @@ interface AuctionItemDetailProps {
 export function AuctionItemDetail({ item, isSocketReady, onSubmitBid }: AuctionItemDetailProps) {
   return (
     <section className="item-detail">
+      {item.imageUrl ? (
+        <div className="item-detail__media">
+          <img src={item.imageUrl} alt={item.title} className="item-detail__image" />
+        </div>
+      ) : null}
       <header className="item-detail__header">
         <h2>{item.title}</h2>
         <p className="item-detail__price">Current price: ${item.currentPrice.toFixed(2)}</p>
+        <p className="item-detail__meta">Starting bid: ${item.startingPrice.toFixed(2)}</p>
         <p className="item-detail__description">{item.description}</p>
       </header>
 

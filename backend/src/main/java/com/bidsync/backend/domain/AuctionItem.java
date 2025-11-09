@@ -31,6 +31,9 @@ public class AuctionItem {
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal startingPrice;
 
+    @Column(length = 1024)
+    private String imageUrl;
+
     @Column(nullable = false)
     private OffsetDateTime createdAt;
 
@@ -44,6 +47,11 @@ public class AuctionItem {
         this.title = title;
         this.description = description;
         this.startingPrice = startingPrice;
+    }
+
+    public AuctionItem(String title, String description, BigDecimal startingPrice, String imageUrl) {
+        this(title, description, startingPrice);
+        this.imageUrl = imageUrl;
     }
 
     @PrePersist
@@ -79,6 +87,14 @@ public class AuctionItem {
 
     public void setStartingPrice(BigDecimal startingPrice) {
         this.startingPrice = startingPrice;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public OffsetDateTime getCreatedAt() {
