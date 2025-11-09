@@ -1,22 +1,28 @@
-# Use an official OpenJDK 17 runtime as a parent image
+# 1. Use the correct Java 21 base image
 FROM eclipse-temurin:21-jdk-jammy
 
-# Set the working directory in the container
+# 2. Set the working directory
 WORKDIR /app
 
-# Copy the Gradle wrapper files
+# 3. Copy *only* the build files
 COPY gradlew .
 COPY gradle ./gradle
-
-# Copy the build file
 COPY build.gradle .
 COPY settings.gradle .
 
-# Grant execute permission to the gradlew script
+# 4. Give Gradle permission to run
 RUN chmod +x ./gradlew
 
-# Build the application
-# We use --no-daemon because it's running in a container
+# 5. Download dependencies (This is a cache optimization)
+# This downloads libraries *before* copying your code.
+# Future builds will re-use these libraries unless your build.gradle changes.
+RUN ./gradlew dependencies --no-daemon
+
+# 6. Copy your source code (THIS IS THE FIX)
+# Now we copy the actual code to be built.
+COPY src ./src
+
+# 7. Build the application
 RUN ./gradlew bootJar --no-daemon
 
 # The app jar will be in build/libs/
