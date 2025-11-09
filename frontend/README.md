@@ -15,8 +15,8 @@ React + TypeScript single-page app for the USC Community Exchange that renders l
 Copy `.env.example` to `.env.local` and adjust as needed:
 
 ```
-VITE_API_BASE_URL=http://localhost:8080
-VITE_WS_BASE_URL=http://localhost:8080/ws
+VITE_API_BASE_URL=https://bidsync-auction-platform.onrender.com
+VITE_WS_BASE_URL=wss://bidsync-auction-platform.onrender.com/ws
 ```
 
 ## Project Structure
@@ -27,4 +27,4 @@ VITE_WS_BASE_URL=http://localhost:8080/ws
 - `src/pages` – top-level page layouts
 - `src/utils` – helper utilities such as date formatting
 
-The UI expects the Spring Boot backend to be reachable at `localhost:8080`. Update the env variables if the backend runs elsewhere.
+The UI defaults to the production backend at `https://bidsync-auction-platform.onrender.com`. Update the env variables if you run the backend in a different environment (e.g., local development).

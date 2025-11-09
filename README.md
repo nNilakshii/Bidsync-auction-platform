@@ -17,14 +17,14 @@ Real-time USC community auction prototype showcasing a React client, Spring Boot
 	```bash
 	createdb bidsync
 	```
-	The application reads credentials from environment variables. For local development the defaults are `postgres/postgres` on `localhost:5432`.
+	The application reads credentials from environment variables. In production (Render) use the managed Postgres connection string; for local development you can still fall back to `postgres/postgres` on `localhost:5432`.
 2. Start the Spring Boot service:
 	```bash
 	cd backend
 	./gradlew bootRun --args='--spring.profiles.active=local'
 	```
 
-The backend publishes REST endpoints under `http://localhost:8080/api` and a STOMP WebSocket endpoint at `http://localhost:8080/ws`.
+The backend publishes REST endpoints under `https://bidsync-auction-platform.onrender.com/api` and a STOMP WebSocket endpoint at `wss://bidsync-auction-platform.onrender.com/ws`.
 
 ### Frontend
 
@@ -38,7 +38,7 @@ The backend publishes REST endpoints under `http://localhost:8080/api` and a STO
 	npm run dev -- --host
 	```
 
-The UI expects the backend at `http://localhost:8080`. Configure different origins via `VITE_API_BASE_URL` and `VITE_WS_BASE_URL` in an `.env.local` file if needed.
+The UI now defaults to the production backend at `https://bidsync-auction-platform.onrender.com`; configure different origins via `VITE_API_BASE_URL` and `VITE_WS_BASE_URL` in an `.env.local` file if you are running locally.
 
 ### Quick Start Checklist
 
@@ -63,7 +63,7 @@ psql -d postgres -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 createdb bidsync 2>/dev/null || true
 
 # 4. Export backend environment variables for this shell
-export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/bidsync
+export SPRING_DATASOURCE_URL=<your-render-jdbc-url>
 export SPRING_DATASOURCE_USERNAME=postgres
 export SPRING_DATASOURCE_PASSWORD=postgres
 export SPRING_PROFILES_ACTIVE=local
@@ -84,7 +84,7 @@ npm install
 npm run dev -- --host
 ```
 
-Once both servers print their “ready” messages, visit `http://localhost:5173` for the UI and use `curl http://localhost:8080/api/items` to verify the API.
+Once both servers print their “ready” messages, visit `http://localhost:5173` for the UI (or your deployed site) and use `curl https://bidsync-auction-platform.onrender.com/api/items` to verify the production API.
 
 ## Key Directories
 
